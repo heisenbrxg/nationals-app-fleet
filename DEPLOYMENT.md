@@ -1,5 +1,60 @@
 # 🚀 Deployment Guide
 
+## ⚠️ WHITE SCREEN FIX (IMPORTANT!)
+
+If you're seeing a white screen on Vercel, the issue has been fixed! Here's what was done:
+
+### ✅ Fixes Applied:
+
+1. **Created `vercel.json`** - Configures SPA routing and build settings
+2. **Updated `vite.config.js`** - Set `base: './'` for proper asset paths
+3. **Verified build works** - Run `npm run build` to test locally
+
+### 🔧 How to Deploy Now:
+
+**Option A: Redeploy via Vercel Dashboard**
+1. Go to your Vercel project dashboard
+2. Click "Deployments" tab
+3. Click "..." menu on the latest deployment
+4. Click "Redeploy"
+
+**Option B: Push to Git (if connected)**
+```bash
+git add .
+git commit -m "Fix white screen - update Vercel config"
+git push
+```
+Vercel will auto-deploy.
+
+**Option C: Deploy via CLI**
+```bash
+npm install -g vercel
+vercel login
+vercel --prod
+```
+
+### 🐛 Still Seeing White Screen?
+
+1. **Check Browser Console** (F12 → Console tab)
+   - Look for JavaScript errors
+   - Check Network tab for 404 errors
+
+2. **Verify Build Logs in Vercel**
+   - Go to your deployment in Vercel
+   - Check "Building" tab for errors
+
+3. **Test Locally**
+   ```bash
+   npm run build
+   npm run preview
+   ```
+   Visit http://localhost:4173
+
+4. **Clear Browser Cache**
+   - Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+
+---
+
 ## 📦 Build for Production
 
 Before deploying, create an optimized production build:
